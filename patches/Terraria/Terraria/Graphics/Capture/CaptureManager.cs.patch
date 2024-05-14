@@ -1,0 +1,29 @@
+--- src/decompiled/Terraria/Graphics/Capture/CaptureManager.cs
++++ src/Terraria/Terraria/Graphics/Capture/CaptureManager.cs
+@@ -5,11 +_,16 @@
+ {
+ 	public class CaptureManager
+ 	{
+-		public static CaptureManager Instance = new CaptureManager();
++		private static CaptureManager _instance = new CaptureManager();
+ 		private CaptureInterface _interface;
+ 		private CaptureCamera _camera;
+ 
+-		public bool IsCapturing => _camera.IsCapturing;
++		public static CaptureManager Instance {
++			get { return Main.dedServ ? new CaptureManager() : _instance;  }
++			set { _instance = value; }
++		}
++
++		public bool IsCapturing => Main.dedServ ? false : _camera.IsCapturing;
+ 
+ 		public bool Active {
+ 			get {
+@@ -32,6 +_,7 @@
+ 
+ 		public CaptureManager() {
+ 			_interface = new CaptureInterface();
++			if(!Main.dedServ)
+ 			_camera = new CaptureCamera(Main.instance.GraphicsDevice);
+ 		}
+ 

@@ -1,0 +1,13 @@
+--- src/decompiled/Terraria/Initializers/LaunchInitializer.cs
++++ src/Terraria/Terraria/Initializers/LaunchInitializer.cs
+@@ -9,7 +_,10 @@
+ 	{
+ 		public static void LoadParameters(Main game) {
+ 			LoadSharedParameters(game);
++			if(!Main.dedServ)
+ 			LoadClientParameters(game);
++			else
++			LoadServerParameters(game);
+ 		}
+ 
+ 		private static void LoadSharedParameters(Main game) {
