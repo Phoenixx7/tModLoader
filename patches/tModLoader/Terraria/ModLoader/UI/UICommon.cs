@@ -89,7 +89,7 @@ public static class UICommon
 	}
 
 	/// <summary>
-	/// Functions like Main.instance.MouseText, but adds the same background seen in tooltips to the text
+	/// Draws a tooltip on the mouse cursor. Functions like <see cref="Main.MouseText(string, int, byte, int, int, int, int, int)"/> and <see cref="Main.hoverItemName"/>, but adds the same background seen in item tooltips behind the text.
 	/// </summary>
 	/// <param name="text"></param>
 	public static void TooltipMouseText(string text)
@@ -134,6 +134,7 @@ public static class UICommon
 	public static Asset<Texture2D> ButtonModInfoTexture { get; internal set; }
 	public static Asset<Texture2D> ButtonModConfigTexture { get; internal set; }
 	public static Asset<Texture2D> ModLocationModPackIcon { get; internal set; }
+	public static Asset<Texture2D> ModLocationLocalIcon { get; internal set; }
 	public static Asset<Texture2D> DividerTexture { get; internal set; }
 	public static Asset<Texture2D> InnerPanelTexture { get; internal set; }
 	public static Asset<Texture2D> InfoDisplayPageArrowTexture { get; internal set; }
@@ -168,6 +169,7 @@ public static class UICommon
 		ButtonModInfoTexture = LoadEmbeddedTexture("UI.ButtonModInfo");
 		ButtonModConfigTexture = LoadEmbeddedTexture("UI.ButtonModConfig");
 		ModLocationModPackIcon = LoadEmbeddedTexture("UI.ModLocationModPackIcon");
+		ModLocationLocalIcon = LoadEmbeddedTexture("UI.ModLocationLocalIcon");
 
 		DividerTexture = Main.Assets.Request<Texture2D>("Images/UI/Divider");
 		InnerPanelTexture = Main.Assets.Request<Texture2D>("Images/UI/InnerPanelBackground");
